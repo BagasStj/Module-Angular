@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { RT_APP } from './app-routing';
+import { RT_APP } from './app-routes';
 
 
 
@@ -9,11 +9,13 @@ const routes: Routes = [
   {
     path: '',
     pathMatch:'full',
-    // redirectTo: RAPP.TEST
+    redirectTo: RAPP.TEST
   },
-  
-
-  
+  {
+    path: RAPP.TEST , 
+    loadChildren: () => import('./test/test.module').then(x => x.TestModule)
+  },
+ 
 ];
 
 @NgModule({

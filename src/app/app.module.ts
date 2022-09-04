@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RT_APP } from './app-routes';
 
 import { AppComponent } from './app.component';
 import { Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-// import { MaterialModule } from './shared/material.module';
+import { MaterialModule } from './shared/material.module';
 import { AppRoutingModule } from './app-routing.module';
 // import { ProfileModule } from './profile/profile.module';
 
@@ -24,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    // MaterialModule,
+    MaterialModule,
     // ProfileModule
   ],
   providers: [],

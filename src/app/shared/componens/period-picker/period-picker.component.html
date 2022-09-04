@@ -1,0 +1,21 @@
+<nz-date-picker nzMode="week" 
+[(ngModel)]="date" 
+[nzDateRender]="tplRender"
+(ngModelChange)="getWeek($event)"></nz-date-picker>
+
+<nz-date-picker nzMode="month" 
+[(ngModel)]="date" 
+(ngModelChange)="getWeek($event)"></nz-date-picker>
+
+<nz-date-picker nzMode="year" 
+[(ngModel)]="date" 
+(ngModelChange)="getWeek($event)"></nz-date-picker>
+
+<ng-template #tplRender let-current>
+    <div class="ant-picker-cell-inner"     
+     (mouseover)="onMouseOver(current)">
+     <div [class.border]="getNumberOfWeek(2, current) == getNumberOfWeek(2, hoverDate)">
+        {{ current.getDate() }}
+     </div>      
+    </div>
+</ng-template>

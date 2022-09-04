@@ -1,0 +1,38 @@
+<span>
+    <button mat-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{areas: areaTree}">{{selectedArea}}</button>
+</span>
+
+<mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent let-item="areas">
+        <ng-container *ngFor="let it of item">
+            <button 
+                *ngIf="!it.children"
+                mat-menu-item
+                (click)="selectMenu(it)"
+                >{{it.label}}</button>
+            <button 
+                *ngIf="it.children"
+                mat-menu-item
+                [matMenuTriggerFor]="appMenu1"
+                [matMenuTriggerData]="{areas: it.children}"
+                >{{it.label}}</button>
+        </ng-container>
+    </ng-template>
+</mat-menu>
+
+<mat-menu #appMenu1="matMenu">
+    <ng-template matMenuContent let-item="areas">
+        <ng-container *ngFor="let it of item">
+            <button 
+                *ngIf="!it.children"
+                mat-menu-item
+                (click)="selectMenu(it)"
+                >{{it.label}}</button>
+            <button 
+                *ngIf="it.children"
+                mat-menu-item
+                (click)="selectMenu(it)"
+                >{{it.label}}</button>
+        </ng-container>
+    </ng-template>
+</mat-menu>
